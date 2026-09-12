@@ -1,0 +1,523 @@
+/* Estilos de Catálogo y Cartelera - Estilo Cuevana3 */
+
+/* Banner Principal / Hero Spotlight */
+.banner-principal {
+  position: relative;
+  min-height: 520px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem 2rem 3.5rem;
+  background-size: cover;
+  background-position: center top;
+  border-radius: 0 0 var(--radio-xl) var(--radio-xl);
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.banner-superposicion {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, 
+    rgba(8, 12, 21, 0.2) 0%, 
+    rgba(8, 12, 21, 0.75) 55%, 
+    rgba(8, 12, 21, 1) 100%),
+    linear-gradient(90deg, 
+    rgba(8, 12, 21, 0.95) 0%, 
+    rgba(8, 12, 21, 0.6) 45%, 
+    transparent 100%);
+  pointer-events: none;
+}
+
+.banner-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.banner-etiquetas {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.insignia-destacada {
+  background: var(--color-secundario);
+  color: #000000;
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radio-sm);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.insignia-calidad {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radio-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.insignia-genero {
+  background: rgba(0, 180, 216, 0.2);
+  color: var(--color-primario-hover);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radio-redondo);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+.banner-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-texto-principal);
+  margin: 0 0 1rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.banner-sinopsis {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 680px;
+}
+
+.banner-botones {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.boton-reproducir-hero {
+  background: linear-gradient(135deg, var(--color-primario), #0284c7);
+  color: #ffffff;
+  border: none;
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 6px 25px rgba(0, 180, 216, 0.45);
+  transition: all var(--transicion-normal);
+}
+
+.boton-reproducir-hero:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.6);
+  background: linear-gradient(135deg, var(--color-primario-hover), #0369a1);
+}
+
+.boton-detalles-hero {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: var(--color-texto-principal);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-detalles-hero:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+/* Barra de Filtros y Búsqueda */
+.contenedor-filtros {
+  max-width: 1600px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.barra-filtros-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  background: var(--color-fondo-tarjeta);
+  border: var(--cristal-borde);
+  border-radius: var(--radio-lg);
+  padding: 1rem 1.25rem;
+  backdrop-filter: var(--cristal-desenfoque);
+}
+
+/* Pestañas de Tipo (Todas / Películas / Series) */
+.pestanas-tipo {
+  display: flex;
+  align-items: center;
+  background: rgba(8, 12, 21, 0.6);
+  padding: 0.3rem;
+  border-radius: var(--radio-md);
+  border: 1px solid var(--color-borde);
+  gap: 0.25rem;
+}
+
+.boton-pestana {
+  background: transparent;
+  border: none;
+  color: var(--color-texto-secundario);
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radio-sm);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-pestana:hover {
+  color: var(--color-texto-principal);
+}
+
+.boton-pestana.activa {
+  background: var(--color-primario);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 180, 216, 0.35);
+}
+
+/* Selectores de Filtro */
+.grupo-selectores {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.selector-filtro {
+  background: rgba(8, 12, 21, 0.75);
+  color: var(--color-texto-principal);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  padding: 0.5rem 1rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.88rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transicion-rapida);
+}
+
+.selector-filtro:focus {
+  border-color: var(--color-primario);
+}
+
+.boton-limpiar-filtros {
+  background: transparent;
+  border: 1px dashed var(--color-borde);
+  color: var(--color-texto-atenuado);
+  border-radius: var(--radio-md);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-limpiar-filtros:hover {
+  color: var(--color-peligro);
+  border-color: var(--color-peligro);
+}
+
+/* Sección de Encabezado de Catálogo */
+.seccion-catalogo-cabecera {
+  max-width: 1600px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.titulo-seccion-catalogo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-texto-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.titulo-seccion-catalogo .barra-destacada {
+  width: 4px;
+  height: 24px;
+  background: var(--color-primario);
+  border-radius: var(--radio-redondo);
+}
+
+.contador-resultados {
+  color: var(--color-texto-atenuado);
+  font-size: 0.9rem;
+}
+
+/* Cuadrícula de Contenido (Media Grid) */
+.contenedor-cuadricula {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.cuadricula-media {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.75rem 1.25rem;
+}
+
+/* Tarjeta de Película / Serie */
+.tarjeta-media {
+  position: relative;
+  background: var(--color-fondo-tarjeta);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-borde);
+  transition: all var(--transicion-suave);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-media:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--color-borde-hover);
+  box-shadow: var(--resplandor-tarjeta), var(--sombra-tarjeta);
+  z-index: 10;
+}
+
+/* Portada / Poster de la Tarjeta */
+.tarjeta-poster-contenedor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.tarjeta-poster-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tarjeta-media:hover .tarjeta-poster-imagen {
+  transform: scale(1.08);
+}
+
+/* Superposición al Hover estilo Cuevana */
+.tarjeta-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 12, 21, 0.2) 0%, rgba(8, 12, 21, 0.9) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transicion-rapida);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.tarjeta-media:hover .tarjeta-hover-overlay {
+  opacity: 1;
+}
+
+.boton-play-flotante {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-primario);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 180, 216, 0.8);
+  transform: scale(0.85);
+  transition: all var(--transicion-rapida);
+}
+
+.tarjeta-media:hover .boton-play-flotante {
+  transform: scale(1);
+}
+
+.boton-play-flotante:hover {
+  background: var(--color-primario-hover);
+  transform: scale(1.1) !important;
+}
+
+/* Badges sobre la portada */
+.tarjeta-insignias-superiores {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  right: 0.65rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.badge-tipo {
+  font-family: var(--fuente-titulos);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radio-sm);
+  letter-spacing: 0.4px;
+}
+
+.badge-tipo.pelicula {
+  background: rgba(0, 180, 216, 0.9);
+  color: #ffffff;
+}
+
+.badge-tipo.serie {
+  background: rgba(236, 72, 153, 0.9);
+  color: #ffffff;
+}
+
+.badge-anio {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: #f1f5f9;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radio-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Información de la Tarjeta */
+.tarjeta-informacion {
+  padding: 0.9rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tarjeta-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transicion-rapida);
+}
+
+.tarjeta-media:hover .tarjeta-titulo {
+  color: var(--color-primario);
+}
+
+.tarjeta-detalles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--color-texto-secundario);
+}
+
+.tarjeta-genero {
+  color: var(--color-texto-atenuado);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+/* Estado Vacío de la Cuadrícula */
+.estado-vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: var(--color-fondo-tarjeta);
+  border: 1px dashed var(--color-borde);
+  border-radius: var(--radio-lg);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.icono-estado-vacio {
+  width: 64px;
+  height: 64px;
+  color: var(--color-texto-atenuado);
+  margin-bottom: 1.25rem;
+}
+
+.titulo-estado-vacio {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin: 0 0 0.5rem;
+}
+
+.descripcion-estado-vacio {
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+  max-width: 440px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-principal {
+    min-height: 420px;
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .banner-titulo {
+    font-size: 2.2rem;
+  }
+  .barra-filtros-principal {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pestanas-tipo {
+    justify-content: center;
+  }
+  .cuadricula-media {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem 0.75rem;
+  }
+}

@@ -1,0 +1,289 @@
+/* Estilos del Reproductor de Video y Modal de Detalle Estilo Cuevana3 */
+
+.modal-reproductor-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(4, 7, 13, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-reproductor-contenedor {
+  background: var(--color-fondo-secundario);
+  border: 1px solid var(--color-borde-hover);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9), var(--resplandor-tarjeta);
+  border-radius: var(--radio-xl);
+  width: 100%;
+  max-width: 1100px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botón de Cierre Superior */
+.boton-cerrar-reproductor {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-texto-principal);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all var(--transicion-rapida);
+}
+
+.boton-cerrar-reproductor:hover {
+  background: var(--color-peligro);
+  border-color: var(--color-peligro);
+  transform: scale(1.08) rotate(90deg);
+}
+
+/* Marco del Reproductor 16:9 */
+.reproductor-video-marco {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reproductor-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.reproductor-video-nativo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Simulación de Reproductor Streaming cuando es URL externa */
+.reproductor-simulado {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.reproductor-simulado-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 13, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.boton-reproduccion-grande {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--color-primario);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(0, 180, 216, 0.8);
+  cursor: pointer;
+  transition: all var(--transicion-normal);
+}
+
+.boton-reproduccion-grande:hover {
+  transform: scale(1.12);
+  background: var(--color-primario-hover);
+}
+
+.aviso-reproductor-enlace {
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+  max-width: 500px;
+}
+
+.enlace-servidor-externo {
+  color: var(--color-primario);
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Barra de Servidores estilo Cuevana */
+.barra-servidores {
+  background: rgba(14, 20, 36, 0.95);
+  border-bottom: 1px solid var(--color-borde);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.etiqueta-servidores {
+  font-family: var(--fuente-titulos);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-texto-atenuado);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.boton-servidor {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto-secundario);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radio-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-servidor:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-principal);
+}
+
+.boton-servidor.activo {
+  background: rgba(0, 180, 216, 0.15);
+  border-color: var(--color-primario);
+  color: var(--color-primario-hover);
+}
+
+/* Ficha Técnica de la Película / Serie */
+.ficha-tecnica-contenedor {
+  padding: 1.75rem 2rem 2.25rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.ficha-poster-pequeno {
+  width: 140px;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radio-md);
+  object-fit: cover;
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.ficha-informacion-cuerpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ficha-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-texto-principal);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ficha-metadatos-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ficha-sinopsis {
+  color: #cbd5e1;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin: 0.4rem 0;
+}
+
+/* Grilla de Atributos Técnicos */
+.grilla-atributos-tecnicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.item-atributo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.etiqueta-atributo {
+  color: var(--color-texto-atenuado);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.valor-atributo {
+  color: var(--color-texto-principal);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* Acciones en la ficha */
+.ficha-acciones-inferiores {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ficha-tecnica-contenedor {
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 1.75rem;
+    gap: 1.25rem;
+  }
+  .ficha-poster-pequeno {
+    display: none;
+  }
+  .ficha-titulo {
+    font-size: 1.5rem;
+  }
+}

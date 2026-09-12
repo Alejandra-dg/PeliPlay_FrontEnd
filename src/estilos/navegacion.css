@@ -1,0 +1,301 @@
+/* Estilos de Barra de Navegación PeliPlay */
+
+.barra-navegacion {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--cristal-fondo);
+  backdrop-filter: var(--cristal-desenfoque);
+  -webkit-backdrop-filter: var(--cristal-desenfoque);
+  border-bottom: var(--cristal-borde);
+  transition: all var(--transicion-normal);
+}
+
+.barra-navegacion.con-desplazamiento {
+  background: rgba(8, 12, 21, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.contenedor-navegacion {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Logotipo */
+.logotipo-marca {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icono-logo-contenedor {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radio-md);
+  background: linear-gradient(135deg, var(--color-primario), #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--resplandor-primario);
+  transition: transform var(--transicion-rapida);
+}
+
+.logotipo-marca:hover .icono-logo-contenedor {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.texto-logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--color-texto-principal);
+}
+
+.texto-logo span {
+  color: var(--color-primario);
+  position: relative;
+}
+
+/* Enlaces de Navegación */
+.enlaces-navegacion {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.boton-enlace {
+  background: transparent;
+  border: none;
+  color: var(--color-texto-secundario);
+  font-family: var(--fuente-titulos);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.boton-enlace:hover {
+  color: var(--color-texto-principal);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.boton-enlace.activo {
+  color: var(--color-primario);
+  background: rgba(0, 180, 216, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(0, 180, 216, 0.3);
+}
+
+/* Buscador Rápido */
+.contenedor-buscador {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icono-busqueda {
+  position: absolute;
+  left: 0.9rem;
+  color: var(--color-texto-atenuado);
+  pointer-events: none;
+}
+
+.entrada-busqueda {
+  width: 100%;
+  padding: 0.6rem 2.2rem 0.6rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-redondo);
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  transition: all var(--transicion-rapida);
+  outline: none;
+}
+
+.entrada-busqueda:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
+}
+
+.boton-limpiar-busqueda {
+  position: absolute;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: var(--color-texto-atenuado);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  border-radius: 50%;
+}
+
+.boton-limpiar-busqueda:hover {
+  color: var(--color-texto-principal);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Acciones Derecha */
+.acciones-navegacion {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Indicador de Estado Backend */
+.indicador-conexion {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radio-redondo);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--fuente-cuerpo);
+  border: 1px solid transparent;
+  user-select: none;
+}
+
+.indicador-conexion.en-linea {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.indicador-conexion.desconectado {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.punto-estado {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.indicador-conexion.en-linea .punto-estado {
+  box-shadow: 0 0 8px #34d399;
+}
+
+/* Botón Acción Rápida "+ Nueva Película" */
+.boton-accion-destacada {
+  background: linear-gradient(135deg, var(--color-primario), #0284c7);
+  color: #ffffff;
+  border: none;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: var(--resplandor-primario);
+  transition: all var(--transicion-normal);
+}
+
+.boton-accion-destacada:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+  background: linear-gradient(135deg, var(--color-primario-hover), #0369a1);
+}
+
+/* Botón Menú Móvil */
+.boton-menu-movil {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto-principal);
+  padding: 0.5rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+}
+
+/* Pie de Página */
+.pie-pagina {
+  background: var(--color-fondo-secundario);
+  border-top: var(--cristal-borde);
+  padding: 3rem 1.5rem 2rem;
+  margin-top: 5rem;
+}
+
+.contenedor-pie {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.pie-enlaces {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pie-enlace {
+  color: var(--color-texto-secundario);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color var(--transicion-rapida);
+}
+
+.pie-enlace:hover {
+  color: var(--color-primario);
+}
+
+.pie-copyright {
+  color: var(--color-texto-atenuado);
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .enlaces-navegacion {
+    display: none;
+  }
+  .boton-menu-movil {
+    display: flex;
+  }
+  .contenedor-buscador {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contenedor-buscador {
+    display: none;
+  }
+  .indicador-conexion span {
+    display: none;
+  }
+}

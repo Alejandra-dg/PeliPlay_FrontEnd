@@ -1,0 +1,79 @@
+/* Importación de Módulos de Estilo PeliPlay */
+@import './estilos/variables.css';
+@import './estilos/animaciones.css';
+@import './estilos/navegacion.css';
+@import './estilos/catalogo.css';
+@import './estilos/reproductor.css';
+@import './estilos/administracion.css';
+@import './estilos/modales.css';
+
+/* Reseteo y Reglas Globales */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-fondo-principal);
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-cuerpo);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Barra de Desplazamiento Personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080c15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primario);
+}
+
+/* Enlaces y Botones Generales */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Contenedor Principal de la Aplicación */
+.aplicacion-peliplay {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 0%, #0d172e 0%, #080c15 65%);
+}
+
+.contenido-principal {
+  flex: 1;
+  width: 100%;
+}

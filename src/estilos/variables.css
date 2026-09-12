@@ -1,0 +1,58 @@
+:root {
+  /* Paleta de Colores - Estilo Cuevana3 / Streaming Moderno */
+  --color-fondo-principal: #080c15;
+  --color-fondo-secundario: #0e1424;
+  --color-fondo-tarjeta: rgba(18, 26, 47, 0.75);
+  --color-fondo-tarjeta-hover: rgba(28, 40, 72, 0.85);
+  --color-superficie-elevada: #1a233a;
+  --color-borde: rgba(255, 255, 255, 0.08);
+  --color-borde-hover: rgba(56, 189, 248, 0.4);
+  --color-borde-activo: #00b4d8;
+
+  /* Acentos de Neón y Acción */
+  --color-primario: #00b4d8;
+  --color-primario-rgb: 0, 180, 216;
+  --color-primario-hover: #38bdf8;
+  --color-secundario: #f59e0b;
+  --color-secundario-hover: #fbbf24;
+  --color-acento-rosa: #ec4899;
+  --color-exito: #10b981;
+  --color-advertencia: #f59e0b;
+  --color-peligro: #ef4444;
+  --color-peligro-hover: #dc2626;
+
+  /* Textos */
+  --color-texto-principal: #f8fafc;
+  --color-texto-secundario: #94a3b8;
+  --color-texto-atenuado: #64748b;
+  --color-texto-inverso: #080c15;
+
+  /* Fuentes */
+  --fuente-titulos: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fuente-cuerpo: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Efectos de Cristal / Glassmorphism */
+  --cristal-fondo: rgba(14, 20, 36, 0.82);
+  --cristal-desenfoque: blur(16px);
+  --cristal-borde: 1px solid rgba(255, 255, 255, 0.08);
+  --sombra-cristal: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Sombras y Resplandores */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --sombra-tarjeta: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+  --resplandor-primario: 0 0 25px rgba(0, 180, 216, 0.35);
+  --resplandor-tarjeta: 0 12px 30px rgba(0, 180, 216, 0.15);
+  --resplandor-texto: 0 0 12px rgba(0, 180, 216, 0.5);
+
+  /* Bordes Redondeados */
+  --radio-sm: 6px;
+  --radio-md: 10px;
+  --radio-lg: 16px;
+  --radio-xl: 24px;
+  --radio-redondo: 9999px;
+
+  /* Transiciones */
+  --transicion-rapida: 0.18s ease;
+  --transicion-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transicion-suave: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}

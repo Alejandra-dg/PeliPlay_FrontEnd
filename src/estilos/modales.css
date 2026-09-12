@@ -1,0 +1,356 @@
+/* Estilos de Ventanas Modales y Formularios PeliPlay */
+
+.modal-superposicion {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 7, 13, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-caja {
+  background: var(--color-fondo-secundario);
+  border: 1px solid var(--color-borde-hover);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 180, 216, 0.15);
+  border-radius: var(--radio-xl);
+  width: 100%;
+  max-width: 680px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-caja.confirmacion {
+  max-width: 460px;
+  text-align: center;
+  padding: 2.25rem 2rem;
+}
+
+/* Cabecera del Modal */
+.modal-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--color-borde);
+  background: rgba(8, 12, 21, 0.5);
+}
+
+.modal-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.modal-boton-cerrar {
+  background: transparent;
+  border: none;
+  color: var(--color-texto-atenuado);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: var(--radio-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transicion-rapida);
+}
+
+.modal-boton-cerrar:hover {
+  color: var(--color-texto-principal);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cuerpo del Formulario */
+.modal-cuerpo {
+  padding: 1.75rem;
+  overflow-y: auto;
+  max-height: calc(85vh - 140px);
+}
+
+.formulario-grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.campo-ancho-completo {
+  grid-column: 1 / -1;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.etiqueta-formulario {
+  font-family: var(--fuente-titulos);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-secundario);
+}
+
+.etiqueta-formulario .requerido {
+  color: var(--color-peligro);
+  margin-left: 0.2rem;
+}
+
+.entrada-formulario,
+.selector-formulario,
+.area-texto-formulario {
+  background: rgba(8, 12, 21, 0.7);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  padding: 0.65rem 0.95rem;
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.92rem;
+  outline: none;
+  transition: all var(--transicion-rapida);
+  width: 100%;
+}
+
+.entrada-formulario:focus,
+.selector-formulario:focus,
+.area-texto-formulario:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
+  background: rgba(8, 12, 21, 0.95);
+}
+
+.area-texto-formulario {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.mensaje-error-campo {
+  color: #f87171;
+  font-size: 0.78rem;
+  margin-top: 0.2rem;
+}
+
+/* Pie del Modal con Botones */
+.modal-pie {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--color-borde);
+  background: rgba(8, 12, 21, 0.5);
+}
+
+.boton-secundario {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-texto-principal);
+  border: 1px solid var(--color-borde);
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-secundario:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.boton-primario {
+  background: linear-gradient(135deg, var(--color-primario), #0284c7);
+  color: #ffffff;
+  border: none;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.35);
+  transition: all var(--transicion-rapida);
+}
+
+.boton-primario:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+  background: linear-gradient(135deg, var(--color-primario-hover), #0369a1);
+}
+
+.boton-primario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton-peligro {
+  background: linear-gradient(135deg, var(--color-peligro), #b91c1c);
+  color: #ffffff;
+  border: none;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radio-md);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+  transition: all var(--transicion-rapida);
+}
+
+.boton-peligro:hover {
+  background: linear-gradient(135deg, var(--color-peligro-hover), #991b1b);
+  transform: translateY(-1px);
+}
+
+/* Modal de Confirmación */
+.icono-alerta-confirmacion {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--color-peligro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.icono-alerta-confirmacion.bloqueado {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.titulo-confirmacion {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin: 0 0 0.5rem;
+}
+
+.texto-confirmacion {
+  color: var(--color-texto-secundario);
+  font-size: 0.92rem;
+  margin: 0 0 1.75rem;
+  line-height: 1.5;
+}
+
+.alerta-bloqueo-eliminacion {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radio-md);
+  padding: 1.1rem;
+  color: #fbbf24;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+.acciones-confirmacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Sistema de Notificaciones Toast Flotantes */
+.contenedor-toasts {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+  width: calc(100% - 3rem);
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radio-lg);
+  background: rgba(14, 20, 36, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  transition: all var(--transicion-normal);
+}
+
+.toast-item.exito {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.25);
+}
+
+.toast-item.error {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
+}
+
+.toast-item.info {
+  border-color: rgba(0, 180, 216, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 180, 216, 0.25);
+}
+
+.toast-icono {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.toast-item.exito .toast-icono {
+  color: #34d399;
+}
+
+.toast-item.error .toast-icono {
+  color: #f87171;
+}
+
+.toast-item.info .toast-icono {
+  color: var(--color-primario);
+}
+
+.toast-texto {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toast-cerrar {
+  background: transparent;
+  border: none;
+  color: var(--color-texto-atenuado);
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.toast-cerrar:hover {
+  color: var(--color-texto-principal);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .formulario-grilla {
+    grid-template-columns: 1fr;
+  }
+}
