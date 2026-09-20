@@ -3,8 +3,19 @@
  * Convención de nombres en Español
  */
 
-// Usamos el proxy relativo '/api' o la variable de entorno si está configurada
-const URL_BASE = import.meta.env.VITE_API_URL || '/api';
+// Normalizamos la URL base para admitir proxy '/api' o dominio completo en producción (Render/Netlify)
+const obtenerUrlBase = () => {
+  let base = (import.meta.env.VITE_API_URL || '/api').trim();
+  // Elimina diagonales al final para evitar dobles barras
+  base = base.replace(/\/+$/, '');
+  // Si es una URL absoluta HTTP/HTTPS y no incluye el prefijo '/api', lo agrega automáticamente
+  if (/^https?:\/\//i.test(base) && !base.endsWith('/api')) {
+    base = `${base}/api`;
+  }
+  return base;
+};
+
+const URL_BASE = obtenerUrlBase();
 
 /**
  * Realiza peticiones HTTP y maneja errores de forma uniforme
@@ -13,7 +24,9 @@ const URL_BASE = import.meta.env.VITE_API_URL || '/api';
  * @returns {Promise<any>}
  */
 export const realizarPeticion = async (puntoFinal, opciones = {}) => {
-  const urlCompleta = `${URL_BASE}${puntoFinal}`;
+  const rutaNormalizada = puntoFinal.startsWith('/') ? puntoFinal : `/${puntoFinal}`;
+  const urlCompleta = `${URL_BASE}${rutaNormalizada}`;
+
 
   const encabezados = {
     'Content-Type': 'application/json',
